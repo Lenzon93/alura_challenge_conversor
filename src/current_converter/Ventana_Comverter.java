@@ -84,6 +84,7 @@ public class Ventana_Comverter {
 		panelEjecucion.add(lblNewLabel_1);
 		
 		tfNumero1 = new JTextField();
+		tfNumero1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		tfNumero1.setForeground(SystemColor.activeCaptionBorder);
 		tfNumero1.setBackground(new Color(55,58,60,255));
 		tfNumero1.setBounds(384, 150, 210, 20);
@@ -146,25 +147,117 @@ public class Ventana_Comverter {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					
+					//---------------------------------------KM A MILLA-------------------------------------------------------------
 					if(comboBox.getSelectedItem()=="KM-MILLA") {
 						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
 						Float res=(float) (dato1*0.62);
 						lblRes.setText("El Resultado es : "+res+"Millas.");
-					}else if(comboBox.getSelectedItem()=="METRO-PIE") {
+					}
+					//--------------------------------------- METRO A PIE-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="METRO-PIE") {
 						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
 						Float res=(float) (dato1/0.3048);
 						lblRes.setText("El Resultado es : "+df.format(res)+" Pie.");
-					}else if(comboBox.getSelectedItem()=="BAR-PSI") {
+					}
+					//---------------------------------------BAR A PSI-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="BAR-PSI") {
 						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
 						Float res=(float) (dato1*14.51);
 						lblRes.setText("El Resultado es : "+df.format(res)+" Psi.");
 						
 					}
+				
+					
+					
+					
+					
+					
+					
+					//---------------------------------------DOLLAR LEMPIRAS-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="DOLLAR-LEMPIRAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*24.96);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LPS.");
+					}
+					
+					//---------------------------------------EURO LEMPIRAS-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="EURO-LEMPIRAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*27.41);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LPS.");
+					}
+					//---------------------------------------YEN LEMPIRAS-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="YEN-LEMPIRAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1/0.18);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LPS.");
+					}
+					//---------------------------------------LIBRA ESTERLINA-LEMPIRAS-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="LIBRA ESTERLINA-LEMPIRAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*31.94);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LPS.");
+					}
+					//---------------------------------------WON LEMPIRAS-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="WON-LEMPIRAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*.020);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LPS.");
+					}
+					
+				//REVERSED|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+					
+
+					//---------------------------------------LEMPIRAS A DOLLAR-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="LEMPIRAS-DOLLAR") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.04);
+						lblRes.setText("El Resultado es : "+df.format(res)+" $.");
+					}
+					
+					//---------------------------------------LEMPIRAS A EURO-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="LEMPIRAS-EURO") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.036);
+						lblRes.setText("El Resultado es : "+df.format(res)+" E.");
+					}
+					//---------------------------------------KM A MILLA-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="LEMPIRAS-YEN") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*5.57);
+						lblRes.setText("El Resultado es : "+df.format(res)+" YEN.");
+					}
+					//---------------------------------------KM A MILLA-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="LEMPIRAS-LIBRAS ESTERLINAS") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.031);
+						lblRes.setText("El Resultado es : "+df.format(res)+" LB.");
+					}
+					//---------------------------------------KM A MILLA-------------------------------------------------------------
+					
+					else if(comboBox.getSelectedItem()=="LEMPIRAS-WON") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*51.27);
+						lblRes.setText("El Resultado es : "+df.format(res)+" WONES.");
+					}
+					
+					
+					
+					
+					
 					
 			
 					
 				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(panelEjecucion, "Favor rellena los campos");
+					JOptionPane.showMessageDialog(panelEjecucion, "Favor rellena los campos, SOLO SE ACEPTAN NUMEROS");
 				}
 			}
 		});
@@ -240,7 +333,7 @@ public class Ventana_Comverter {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				comboBox.setModel(new DefaultComboBoxModel(new String[] {"LEMPIRA-DOLLAR", "LEMPIRAS-EURO"}));
+				comboBox.setModel(new DefaultComboBoxModel(new String[] {"DOLLAR-LEMPIRAS", "EURO-LEMPIRAS","YEN-LEMPIRAS","LIBRA ESTERLINA-LEMPIRAS","WON-LEMPIRAS","LEMPIRAS-DOLLAR", "LEMPIRAS-EURO","LEMPIRAS-YEN","LEMPIRAS-LIBRAS ESTERLINAS","LEMPIRAS-WON"}));
 				tfNumero1.setText("");
 				lblRes.setText("NINGUNA OPERACION REALIZADA");
 			}
