@@ -152,7 +152,7 @@ public class Ventana_Comverter {
 					if(comboBox.getSelectedItem()=="KM-MILLA") {
 						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
 						Float res=(float) (dato1*0.62);
-						lblRes.setText("El Resultado es : "+res+"Millas.");
+						lblRes.setText("El Resultado es : "+res+" Millas.");
 					}
 					//--------------------------------------- METRO A PIE-------------------------------------------------------------
 					else if(comboBox.getSelectedItem()=="METRO-PIE") {
@@ -160,6 +160,10 @@ public class Ventana_Comverter {
 						Float res=(float) (dato1/0.3048);
 						lblRes.setText("El Resultado es : "+df.format(res)+" Pie.");
 					}
+					
+					//---------------------PRESIONES---------------------------------------PRESIONES-----------------------------------
+					
+					
 					//---------------------------------------BAR A PSI-------------------------------------------------------------
 					else if(comboBox.getSelectedItem()=="BAR-PSI") {
 						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
@@ -167,11 +171,51 @@ public class Ventana_Comverter {
 						lblRes.setText("El Resultado es : "+df.format(res)+" Psi.");
 						
 					}
+					
+					//---------------------------------------KGcm/2 PSI-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="KGcm/2-PSI") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*14.22);
+						lblRes.setText("El Resultado es : "+df.format(res)+" Psi.");
+						
+					}
+					
+					//---------------------------------------KPA PSI-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="KPA-PSI") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.15);
+						lblRes.setText("El Resultado es : "+df.format(res)+" Psi.");
+						
+					}
+					
+					//--------------------------------------PSI BAR-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="PSI-BAR") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.068);
+						lblRes.setText("El Resultado es : "+df.format(res)+" bar.");
+						
+					}
+					
+					//---------------------------------------PSI KGcm/2-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="PSI-KGcm/2") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*0.070);
+						lblRes.setText("El Resultado es : "+df.format(res)+" kg cm/2.");
+						
+					}
+					
+					//---------------------------------------PSI KPA-------------------------------------------------------------
+					else if(comboBox.getSelectedItem()=="PSI-KPA") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1*6.90);
+						lblRes.setText("El Resultado es : "+df.format(res)+" Kpa.");
+						
+					}
 				
 					
 					
 					
-					
+				//MONEDAS----------------------------------------------------------------MONEDAS-----------------------------------------	
 					
 					
 					//---------------------------------------DOLLAR LEMPIRAS-------------------------------------------------------------
@@ -250,7 +294,22 @@ public class Ventana_Comverter {
 					}
 					
 					
-					
+					//--------------------------------------TEMPERATURAS----------------------------------------------------
+					else if(comboBox.getSelectedItem()=="CELSIUS-KELVIN") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1+273.15);
+						lblRes.setText("El Resultado es : "+res+" grados Kelvin.");
+					}
+					else if(comboBox.getSelectedItem()=="CELSIUS-FARENHEIT") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1+32);
+						lblRes.setText("El Resultado es : "+res+" grados Farenheit.");
+					}
+					else if(comboBox.getSelectedItem()=="FARENHEIT-KELVIN") {
+						Float dato1=Float.parseFloat(tfNumero1.getText().toString());
+						Float res=(float) (dato1+255.37);
+						lblRes.setText("El Resultado es : "+res+" grados Kelvin.");
+					}
 					
 					
 					
@@ -266,7 +325,7 @@ public class Ventana_Comverter {
 		btnNewButton.setBounds(472, 222, 114, 23);
 		panelEjecucion.add(btnNewButton);
 	//-------------------------------------------BOTONES DE ELECCION(PRESIONES)--------------------------------------------	
-		JButton btnPresion = new JButton("Preciones");
+		JButton btnPresion = new JButton("Presiones");
 		btnPresion.setBounds(22, 160, 158, 23);
 		panelEjecucion.add(btnPresion);
 		btnPresion.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -276,7 +335,7 @@ public class Ventana_Comverter {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				comboBox.setModel(new DefaultComboBoxModel(new String[] {"BAR-PSI", "KPA-TORR"}));
+				comboBox.setModel(new DefaultComboBoxModel(new String[] {"BAR-PSI", "KGcm/2-PSI","KPA-PSI","PSI-BAR", "PSI-KGcm/2","PSI-KPA"}));
 				tfNumero1.setText("");
 				lblRes.setText("NINGUNA OPERACION REALIZADA");
 				
